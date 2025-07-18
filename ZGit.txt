@@ -1,0 +1,48 @@
+#Configure your identity
+    git config --global user.name "jl-delacruz"
+    git config --global user.email "jldelacruz6152002@gmail.com"
+#Check configuration
+    git config --list
+
+#Creating a Git Repository
+    #Initialize Git in the Project
+        git init
+
+    #create a new file and commit it
+        echo "# LARAVEL" > README.md
+
+    #add the file to the staging area
+        git add .
+        git commit -m "Initial commit
+        git status
+
+#Git Workflow Basics
+1. git add - stage changes
+2. git commit - save staged changes
+3. git push - upload commits to remote
+4. git pull - download latest changes
+5. git status - check current state
+6. git log - see commit history
+
+#Git
+#Connect to a remote repo:
+    //git remote add origin https://github.com/yourusername/my-project.git
+    git remote add origin https://github.com/jl-delacruz/Laravel
+    git remote -v
+
+#Push changes to remote:
+    git branch -M main
+    git push -u origin main
+
+#After changes and Push
+    git add .
+    git commit -m "description of changes"
+    git push
+
+#Pull changes from remote: if you have made changes locally
+    git pull
+
+#Clone an existing repo:
+    git clone https://github.com/username/repo.git
+
+

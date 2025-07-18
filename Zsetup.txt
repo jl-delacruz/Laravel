@@ -1,0 +1,57 @@
+#Installing PHP and the Laravel Installer
+    # Run Windows PowerShell as administrator...
+        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
+        composer global require laravel/installer
+
+--------------------------------------------------------------------------------------------
+#Create App
+    composer create-project laravel/laravel my-app
+    cd my-app
+    php artisan serve
+
+    or 
+
+    #with inertia for javascript framework
+    laravel new [name]
+    cd my-app
+    npm install && npm run build
+    composer run dev
+
+--------------------------------------------------------------------------------------------
+
+#add signin and signup functionality with react
+composer require laravel/breeze --dev
+php artisan breeze:install react
+npm install
+npm run dev
+
+#.env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_react_db
+DB_USERNAME=root
+DB_PASSWORD=your_password
+
+------------------------------------------
+#edit app/Providers/AppServiceProvider.php
+use Illuminate\Support\Facades\Schema;
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+------------------------------------------
+
+#terminal
+php artisan config:clear
+php artisan cache:clear
+php artisan migrate
+
+#Run 
+composer run dev
+
+-------------------------------------------
+#terminal for DATABASE
+php artisan make:model Project -fm
+php artisan make:model Task -fm

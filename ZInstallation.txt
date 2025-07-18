@@ -1,0 +1,35 @@
+#Installing PHP and the Laravel Installer
+    # Run Windows PowerShell as administrator...
+        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
+        composer global require laravel/installer
+
+--------------------------------------------------------------------------------------------
+#Create App
+    composer create-project laravel/laravel my-app
+    cd my-app
+    php artisan serve
+
+--------------------------------------------------------------------------------------------
+#Databases and Migrations
+    #edit .env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=laravel
+        DB_USERNAME=root
+        DB_PASSWORD=
+
+    #if you choose database other than SQLite, use since we use mysql
+        php artisan migrate
+--------------------------------------------------------------------------------------------
+#To use mysql
+#edit app/Providers/AppServiceProvider.php
+    use Illuminate\Support\Facades\Schema;
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+--------------------------------------------------------------------------------------------
+#To use api
+    php artisan install:api

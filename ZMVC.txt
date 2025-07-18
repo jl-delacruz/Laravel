@@ -1,0 +1,14 @@
+#Model View Controller in Laravel
+
+User.req - Controller - model - Database
+
+#flow
+User.req - Routes - Controller - model - Database
+    Controller - View - User
+--------------------------------------------------------------------------------------------
+1.Create new resources View
+    #direct creating file
+        [name].blade.php 
+    #using artisan
+        php artisan make:view [name]
+2.
